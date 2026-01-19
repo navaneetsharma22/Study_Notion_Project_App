@@ -1,13 +1,20 @@
 import React from "react";
+import loginImg from "../assets/login.png";
+import Template from "../components/Template";
 
-function Login() {
+// ✅ FIX: destructure props correctly
+function Login({ setIsLoggedIn }) {
 
-    return(
-        <div>
-            
-        </div>
-    )
-
+    return (
+       <Template 
+        title="Welcome Back"
+        desc1="Build skills for today"
+        desc2="Education to future-proof your Career"
+        image={loginImg}              // ✅ image is passed correctly
+        formType="login"
+        setIsLoggedIn={setIsLoggedIn} // ✅ now works
+       />
+    );
 }
 
 export default Login;

@@ -13,15 +13,25 @@ function App() {
 
   return (
     <div>
-      {/* ✅ TOASTER MUST BE RENDERED */}
       <Toaster />
 
       <Navbar isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />
 
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/signup" element={<Signup />} />
+
+        {/* ✅ PASS setIsLoggedIn */}
+        <Route
+          path="/login"
+          element={<Login setIsLoggedIn={setIsLoggedIn} />}
+        />
+
+        {/* ✅ PASS setIsLoggedIn */}
+        <Route
+          path="/signup"
+          element={<Signup setIsLoggedIn={setIsLoggedIn} />}
+        />
+
         <Route path="/dashboard" element={<Dashboard />} />
       </Routes>
     </div>
