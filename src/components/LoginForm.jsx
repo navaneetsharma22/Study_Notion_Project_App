@@ -9,7 +9,7 @@ import { Link } from "react-router-dom";
 
 const LoginForm = ({setIsLoggedIn}) => {
     const [formData ,setFormData] = useState({
-        email: "" , password:" "
+        email: "" , password:""
     })
 
     const navigate = useNavigate();
@@ -36,9 +36,10 @@ const LoginForm = ({setIsLoggedIn}) => {
 
     return (
         // for Submit Page to Dashboard
-        <form onSubmit={submitHandler}>
-            <lable>
-                <p>Email Address<sub>*</sub></p>
+        <form onSubmit={submitHandler}
+         className="flex flex-col w-full gap-y-4 mt-6">
+            <lable className="w-full">
+                <p className="text-[0.875rem] text-white mb-1 leading-0.5 mb-3 font-bold">Email Address<sub className="text-pink-400">*</sub></p>
                 <input 
                     required
                     type="text"
@@ -46,22 +47,25 @@ const LoginForm = ({setIsLoggedIn}) => {
                     onChange={changeHandler}
                     name="email"
                     placeholder="Enter email id"
+                    className="bg-gray-900 rounded-sm text-white w-full p-3"
                 />
             </lable>
 
-                   <lable>
-                <p>Password<sub>*</sub></p>
+                   <lable className="w-full relative">
+                <p className="text-[0.875rem] text-white mb-1 leading-0.5 mb-3 font-bold">Password<sub className="text-pink-400">*</sub></p>
                 <input 
                     required
                     type= {showPassword ? ("text") : ("passwordS") }
                     value={formData.password}
                     onChange={changeHandler}
-                    placeholder="Enter Your password"
+                    placeholder ="Enter Your Password"
                     name="password"
+                    className="bg-gray-900   rounded-sm text-white w-full p-3"
                 />
-                <span onClick={() => setShowPassword((prev) => !prev)}>
+                <span className="absolute top-6.5 right-3 cursor-pointer "
+                onClick={() => setShowPassword((prev) => !prev)}>
 
-                {showPassword ? (<AiOutlineEyeInvisible/>) : (<AiOutlineEye/>) }
+                {showPassword ? (<AiOutlineEyeInvisible fontSize={24} fill='#AFB2BF'/>) : (<AiOutlineEye fontSize={24} fill='#AFB2BF'/>) }
 
        
                 
@@ -69,14 +73,14 @@ const LoginForm = ({setIsLoggedIn}) => {
 
                          <Link to="#"> 
 
-                    <p>
+                    <p className="text-xs mt-1 text-blue-500 max-w-max ml-auto ">
                         Forgot Password
                     </p>
-                
+                 
                 </Link>
             </lable>
 
-            <button>
+            <button className="bg-yellow-500 rounded-sm font-medium h-9 text-gray-900 px-4 mt-5">
                 Sign In
             </button>
 

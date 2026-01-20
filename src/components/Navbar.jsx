@@ -4,7 +4,7 @@ import toast from "react-hot-toast";
 
 function Navbar({ isLoggedIn, setIsLoggedIn }) {
   return (
-    <div className="flex justify-evenly items-center font-bold">
+    <div className="flex relative bottom-1 justify-between items-center w-11/12 max-w-290 py-4 mx-auto font-bold">
 
       {/* Logo */}
       <Link to="/">
@@ -13,7 +13,7 @@ function Navbar({ isLoggedIn, setIsLoggedIn }) {
 
       {/* Nav Links */}
       <nav>
-        <ul className="flex gap-3">
+        <ul className="flex gap-x-6 text-white">
           <li><Link to="/">Home</Link></li>
           <li><Link to="/">About</Link></li>
           <li><Link to="/">Contact</Link></li>
@@ -21,7 +21,7 @@ function Navbar({ isLoggedIn, setIsLoggedIn }) {
       </nav>
 
       {/* Auth Buttons */}
-      <div className="flex gap-3">
+      <div className="flex item-center gap-x-4 ">
 
         {/* Login */}
         {!isLoggedIn && (
@@ -31,7 +31,8 @@ function Navbar({ isLoggedIn, setIsLoggedIn }) {
               toast("Redirecting to Login 🔐", { id: "login-toast" })
             }
           >
-            <button className="outline">Login</button>
+            <button className=" bg- bg-gray-800 text-white py-2 
+            px-3 rounded-sm border-gray-700">Login</button>
           </Link>
         )}
 
@@ -43,7 +44,8 @@ function Navbar({ isLoggedIn, setIsLoggedIn }) {
               toast.success("Create your account ✨", { id: "signup-toast" })
             }
           >
-            <button className="outline">Sign Up</button>
+            <button className=" bg- bg-gray-800 text-white py-2 
+            px-3 rounded-sm border-gray-700">Sign Up</button>
           </Link>
         )}
 
@@ -58,7 +60,8 @@ function Navbar({ isLoggedIn, setIsLoggedIn }) {
               });
             }}
           >
-            <button className="outline">Log Out</button>
+            <button className=" bg- bg-gray-800 text-white py-2 
+            px-3 rounded-sm border-gray-700">Log Out</button>
           </Link>
         )}
 
@@ -70,7 +73,8 @@ function Navbar({ isLoggedIn, setIsLoggedIn }) {
               toast("Welcome to Dashboard 🚀", { id: "dashboard-toast" })
             }
           >
-            <button className="outline">Dashboard</button>
+            <button className=" bg- bg-gray-800 text-white py-2 
+            px-3 rounded-sm border-gray-700">Dashboard</button>
           </Link>
         )}
       </div>
